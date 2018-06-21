@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1529585532 source:d:\fragan\defensaparcial\defpar\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529582310 d:\fragan\defensaparcial\defpar\arraylist.h
+
+1529594423 source:d:\fragan\defensaparcial\defpar\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1529592718 source:d:\fragan\defensaparcial\defpar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1529594330 d:\fragan\defensaparcial\defpar\funciones.h
+
