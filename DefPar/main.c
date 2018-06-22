@@ -54,28 +54,46 @@ int main()
                 listaRegular->add(listaRegular,t);
                 break;
             case 3:
+                if(!listaUrgente->isEmpty(listaUrgente))
+                {
+                    t= (eTramite*) listaUrgente->pop(listaUrgente,0);
+
+                    printf("cliente a ser atendido: ");
+                    mostarTramite(t);
+                }
                break;
             case 4:
-                len=listaUrgente->len(listaUrgente);
-                printf("Tramites Urgentes\n");
-                for(i=0;i<len;i++)
+                if(!listaUrgente->isEmpty(listaUrgente))
                 {
-                    t=(eTramite*) listaUrgente->get(listaUrgente,i);
-                    mostarTramite(t);
+                    len=listaUrgente->len(listaUrgente);
+                    printf("Tramites Urgentes\n");
+                    for(i=0;i<len;i++)
+                    {
+                        t=(eTramite*) listaUrgente->get(listaUrgente,i);
+                        mostarTramite(t);
+                    }
+
                 }
 
-                len=listaRegular->len(listaRegular);
-                printf("Tramites Regulares\n");
-                for(i=0;i<len;i++)
+                if(!listaRegular->isEmpty(listaRegular))
                 {
-                    t=(eTramite*) listaRegular->get(listaRegular,i);
-                    mostarTramite(t);
+                    len=listaRegular->len(listaRegular);
+                    printf("Tramites Regulares\n");
+                    for(i=0;i<len;i++)
+                    {
+                        t=(eTramite*) listaRegular->get(listaRegular,i);
+                        mostarTramite(t);
+                    }
                 }
+
                break;
             case 6:
                 seguir = 'n';
                 break;
         }
+        system("pause");
+
+        system("cls");
     }
 
     return 0;
