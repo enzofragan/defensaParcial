@@ -15,10 +15,14 @@ int main()
     char dni[10];
     ArrayList* listaUrgente;
     ArrayList* listaRegular;
+    ArrayList* atendidosUrgentes;
+    ArrayList* atendidosRegulares;
     char seguir='s';
 
     listaUrgente=al_newArrayList();
     listaRegular=al_newArrayList();
+    atendidosUrgentes=al_newArrayList();
+    atendidosRegulares=al_newArrayList();
 
      while(seguir=='s')
     {
@@ -58,8 +62,23 @@ int main()
                 {
                     t= (eTramite*) listaUrgente->pop(listaUrgente,0);
 
-                    printf("cliente a ser atendido: ");
+                    printf("cliente a ser atendido (urgente): ");
+
+                    atendidosUrgentes->add(atendidosUrgentes,t);
+
                     mostarTramite(t);
+                }
+                else
+                {
+                    if(!listaRegular->isEmpty(listaRegular))
+                    {
+                        t= (eTramite*) listaRegular->pop(listaRegular,0);
+                        printf("cliente a ser atendido (regular): ");
+
+                        atendidosRegulares->add(atendidosRegulares,t);
+
+                        mostarTramite(t);
+                    }
                 }
                break;
             case 4:
@@ -87,6 +106,32 @@ int main()
                 }
 
                break;
+            case 5:
+                if(!atendidosUrgentes->isEmpty(atendidosUrgentes))
+                {
+                    len=atendidosUrgentes->len(atendidosUrgentes);
+                    atendidosUrgentes->sort(atendidosUrgentes,compararPorDni,0);
+                    printf("Tramites Urgentes Atendidos\n");
+                    for(i=0;i<len;i++)
+                    {
+                        t=(eTramite*) atendidosUrgentes->get(atendidosUrgentes,i);
+                        mostarTramite(t);
+                    }
+
+                }
+
+                if(!atendidosRegulares->isEmpty(atendidosRegulares))
+                {
+                    len=atendidosRegulares->len(atendidosRegulares);
+                    atendidosRegulares->sort(atendidosRegulares,compararPorDni,0);
+                    printf("Tramites Regulares Atendidos\n");
+                    for(i=0;i<len;i++)
+                    {
+                        t=(eTramite*) atendidosRegulares->get(atendidosRegulares,i);
+                        mostarTramite(t);
+                    }
+                }
+                break;
             case 6:
                 seguir = 'n';
                 break;

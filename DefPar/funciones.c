@@ -66,3 +66,14 @@ int mostarTramite(eTramite* this)
     }
     return mostro;
 }
+
+int compararPorDni(void* tramiteA,void* tramiteB)
+{
+    eTramite* tramite1;
+    eTramite* tramite2;
+
+    tramite1= (eTramite*) tramiteA;
+    tramite2= (eTramite*) tramiteB;
+
+    return strcmp(tramite1->dni,tramite2->dni);
+}

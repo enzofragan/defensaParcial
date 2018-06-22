@@ -17,3 +17,5 @@ int setDni(eTramite*,char*);
 char* getDni(eTramite*);
 
 int mostarTramite(eTramite*);
+
+int compararPorDni(void* ,void* );
