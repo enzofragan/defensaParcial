@@ -3,22 +3,17 @@
 
 typedef struct{
 
-    int dni;
-    char nombre[20];
-    char apellido[20];
-    int turno;
-    int estado;
+    char dni[10];
+    int idTramite;
 
-}eClienteUrgente;
+}eTramite;
 
-typedef struct{
-
-    int dni;
-    char* nombre[20];
-    char* apellido[20];
-    int turno;
-    int estado;
-
-}eClienteRegular;
 #endif // FUNCIONES_H_INCLUDED
-int turnoAuto(eClienteUrgente* urgente,ArrayList* this);
+eTramite* new_tramite();
+int setId(eTramite*,int);
+int getId(eTramite*);
+
+int setDni(eTramite*,char*);
+char* getDni(eTramite*);
+
+int mostarTramite(eTramite*);

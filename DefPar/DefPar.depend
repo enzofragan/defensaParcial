@@ -23,3 +23,27 @@
 
 1529594330 d:\fragan\defensaparcial\defpar\funciones.h
 
+1529671079 source:d:\fragan\##clonegit\defensaparcial\defpar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1529668307 d:\fragan\##clonegit\defensaparcial\defpar\arraylist.h
+
+1529671212 d:\fragan\##clonegit\defensaparcial\defpar\funciones.h
+
+1529668307 source:d:\fragan\##clonegit\defensaparcial\defpar\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529671050 source:d:\fragan\##clonegit\defensaparcial\defpar\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+

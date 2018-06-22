@@ -4,16 +4,65 @@
 #include "ArrayList.h"
 #include "funciones.h"
 
-int turnoAuto(eClienteUrgente* urgente,ArrayList* this)
+eTramite* new_tramite()
 {
-    int i;
-    int returnAux=0;
-    for(i=0;i<this->len(this);i++)
+    eTramite* aux;
+
+    aux=(eTramite*) malloc(sizeof(eTramite));
+
+    return aux;
+}
+
+int setId(eTramite* this,int id)
+{
+    int seteo=-1;
+    if(this!=NULL)
     {
-        if((urgente->estado+i)==0)
-        {
-            returnAux=i+1;
-        }
+        this->idTramite = id;
+        seteo=0;
     }
-    return returnAux;
+    return seteo;
+}
+
+int getId(eTramite* this)
+{
+    int id;
+    if(this!=NULL)
+    {
+        id=this->idTramite;
+    }
+    return id;
+}
+
+int setDni(eTramite* this,char* dni)
+{
+    int seteo=-1;
+    if(this!=NULL && dni!=NULL)
+    {
+        strcpy(this->dni,dni);
+        seteo=0;
+    }
+    return seteo;
+}
+
+char* getDni(eTramite* this)
+{
+    char* dni=NULL;
+    if(this!=NULL)
+    {
+        dni=this->dni;
+    }
+    return dni;
+}
+
+int mostarTramite(eTramite* this)
+{
+    int mostro=-1;
+    if(this!=NULL)
+    {
+        ///printf("%d------%s\n",this->idTramite,this->dni);
+        printf("%d------%s\n",getId(this),getDni(this));
+        mostro=0;
+    }
+    return mostro;
 }
