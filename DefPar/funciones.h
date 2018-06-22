@@ -19,3 +19,9 @@ char* getDni(eTramite*);
 int mostarTramite(eTramite*);
 
 int compararPorDni(void* ,void* );
+
+int mostrarListaDeTramite(ArrayList* );
+
+int cargarTramite(ArrayList*,int ,char*);
+
+int atenderTramite(ArrayList*, ArrayList*);

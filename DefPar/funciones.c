@@ -77,3 +77,50 @@ int compararPorDni(void* tramiteA,void* tramiteB)
 
     return strcmp(tramite1->dni,tramite2->dni);
 }
+
+int mostrarListaDeTramite(ArrayList* listado)
+{
+    int listo=-1;
+    int i;
+    int len;
+    eTramite* tramite;
+    if(listado!=NULL)
+    {
+        len=listado->len(listado);
+        for(i=0;i<len;i++)
+        {
+            tramite= (eTramite*) listado->get(listado,i);
+            mostarTramite(tramite);
+        }
+        listo=0;
+    }
+    return listo;
+}
+int cargarTramite(ArrayList* listado,int id,char* dni)
+{
+    eTramite* t;
+    int cargo=-1;
+    if(listado!=NULL && id>0 && dni!=NULL)
+    {
+        t=new_tramite();
+        setId(t,id);
+        setDni(t,dni);
+        listado->add(listado,t);
+        cargo=0;
+    }
+    return cargo;
+}
+
+int atenderTramite(ArrayList* listadoP, ArrayList* listadoA)
+{
+    int atender=-1;
+    eTramite* t;
+    if(listadoP!=NULL && listadoA!=NULL)
+    {
+        t= (eTramite*) listadoP->pop(listadoP,0);
+
+        listadoA->add(listadoA,t);
+
+        mostarTramite(t);
+    }
+}

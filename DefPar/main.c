@@ -38,98 +38,71 @@ int main()
         switch(opcion)
         {
             case 1:
-                t=new_tramite();
                 idTramiteUrgente++;
-                setId(t,idTramiteUrgente);
                 printf("ingrese dni: ");
                 fflush(stdin);
                 gets(dni);
-                setDni(t,dni);
-                listaUrgente->add(listaUrgente,t);
+                cargarTramite(listaUrgente,idTramiteUrgente,dni);
                 break;
             case 2:
-                t=new_tramite();
                 idTramiteRegular++;
-                setId(t,idTramiteRegular);
                 printf("ingrese dni: ");
                 fflush(stdin);
                 gets(dni);
-                setDni(t,dni);
-                listaRegular->add(listaRegular,t);
+                cargarTramite(listaRegular,idTramiteRegular,dni);
                 break;
             case 3:
                 if(!listaUrgente->isEmpty(listaUrgente))
                 {
-                    t= (eTramite*) listaUrgente->pop(listaUrgente,0);
 
                     printf("cliente a ser atendido (urgente): ");
 
-                    atendidosUrgentes->add(atendidosUrgentes,t);
+                    atenderTramite(listaUrgente,atendidosUrgentes);
 
-                    mostarTramite(t);
                 }
                 else
                 {
                     if(!listaRegular->isEmpty(listaRegular))
                     {
-                        t= (eTramite*) listaRegular->pop(listaRegular,0);
                         printf("cliente a ser atendido (regular): ");
 
-                        atendidosRegulares->add(atendidosRegulares,t);
-
-                        mostarTramite(t);
+                        atenderTramite(listaRegular,atendidosRegulares);
+                    }
+                    else
+                    {
+                        printf("no hay clientes por atender\n");
                     }
                 }
                break;
             case 4:
                 if(!listaUrgente->isEmpty(listaUrgente))
                 {
-                    len=listaUrgente->len(listaUrgente);
                     printf("Tramites Urgentes\n");
-                    for(i=0;i<len;i++)
-                    {
-                        t=(eTramite*) listaUrgente->get(listaUrgente,i);
-                        mostarTramite(t);
-                    }
+                    mostrarListaDeTramite(listaUrgente);
 
                 }
 
                 if(!listaRegular->isEmpty(listaRegular))
                 {
-                    len=listaRegular->len(listaRegular);
                     printf("Tramites Regulares\n");
-                    for(i=0;i<len;i++)
-                    {
-                        t=(eTramite*) listaRegular->get(listaRegular,i);
-                        mostarTramite(t);
-                    }
+                    mostrarListaDeTramite(listaRegular);
                 }
 
                break;
             case 5:
                 if(!atendidosUrgentes->isEmpty(atendidosUrgentes))
                 {
-                    len=atendidosUrgentes->len(atendidosUrgentes);
                     atendidosUrgentes->sort(atendidosUrgentes,compararPorDni,0);
                     printf("Tramites Urgentes Atendidos\n");
-                    for(i=0;i<len;i++)
-                    {
-                        t=(eTramite*) atendidosUrgentes->get(atendidosUrgentes,i);
-                        mostarTramite(t);
-                    }
+                    mostrarListaDeTramite(atendidosUrgentes);
 
                 }
 
                 if(!atendidosRegulares->isEmpty(atendidosRegulares))
                 {
-                    len=atendidosRegulares->len(atendidosRegulares);
                     atendidosRegulares->sort(atendidosRegulares,compararPorDni,0);
                     printf("Tramites Regulares Atendidos\n");
-                    for(i=0;i<len;i++)
-                    {
-                        t=(eTramite*) atendidosRegulares->get(atendidosRegulares,i);
-                        mostarTramite(t);
-                    }
+                    mostrarListaDeTramite(atendidosRegulares);
                 }
                 break;
             case 6:
