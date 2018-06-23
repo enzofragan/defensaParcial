@@ -99,14 +99,31 @@ int mostrarListaDeTramite(ArrayList* listado)
 int cargarTramite(ArrayList* listado,int id,char* dni)
 {
     eTramite* t;
+
     int cargo=-1;
+    int len;
+    int i;
+    FILE* archivo;
     if(listado!=NULL && id>0 && dni!=NULL)
     {
         t=new_tramite();
         setId(t,id);
         setDni(t,dni);
         listado->add(listado,t);
-        archivo(listado,id);
+
+        archivo=fopen("hola.txt","w");
+        len=listado->len(listado);
+
+        for(i=0;i<len;i++)
+        {
+            if(archivo!=NULL)
+            {
+                t=(eTramite*)listado->get(listado,i);
+                fprintf(archivo,"%d---%s\n",t->idTramite,t->dni);
+
+            }
+        }
+        fclose(archivo);
         cargo=0;
     }
     return cargo;
@@ -126,7 +143,7 @@ int atenderTramite(ArrayList* listadoP, ArrayList* listadoA)
     }
 }
 
-int archivo(ArrayList* listado,int id)
+int archivo(ArrayList* listado)
 {
     FILE* archivos;
     int listo=-1;
@@ -136,7 +153,7 @@ int archivo(ArrayList* listado,int id)
     if(listado!=NULL)
     {
         len=listado->len(listado);
-        archivos=fopen("hola.csv","wb");
+        archivos=fopen("hola.txt","w");
         for(i=0;i<len;i++)
         {
             tramite= (eTramite*) listado->get(listado,i);
