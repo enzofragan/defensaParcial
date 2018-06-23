@@ -12,6 +12,7 @@ int main()
     int len;
     int idTramiteUrgente=0;
     int idTramiteRegular=0;
+    int id;
     char dni[10];
     ArrayList* listaUrgente;
     ArrayList* listaRegular;
@@ -24,7 +25,7 @@ int main()
     atendidosUrgentes=al_newArrayList();
     atendidosRegulares=al_newArrayList();
 
-     while(seguir=='s')
+    while(seguir=='s')
     {
         printf("1- Tramite Uregente\n");
         printf("2- Tramite Regular\n");

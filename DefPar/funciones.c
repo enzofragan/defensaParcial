@@ -106,6 +106,7 @@ int cargarTramite(ArrayList* listado,int id,char* dni)
         setId(t,id);
         setDni(t,dni);
         listado->add(listado,t);
+        archivo(listado,id);
         cargo=0;
     }
     return cargo;
@@ -123,4 +124,26 @@ int atenderTramite(ArrayList* listadoP, ArrayList* listadoA)
 
         mostarTramite(t);
     }
+}
+
+int archivo(ArrayList* listado,int id)
+{
+    FILE* archivos;
+    int listo=-1;
+    int i;
+    int len;
+    eTramite* tramite;
+    if(listado!=NULL)
+    {
+        len=listado->len(listado);
+        archivos=fopen("hola.csv","wb");
+        for(i=0;i<len;i++)
+        {
+            tramite= (eTramite*) listado->get(listado,i);
+            fwrite(tramite,sizeof(eTramite),1,archivos);
+        }
+        fclose(archivos);
+        listo=0;
+    }
+    return listo;
 }
