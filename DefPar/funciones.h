@@ -26,4 +26,9 @@ int cargarTramite(ArrayList*,int ,char*);
 
 int atenderTramite(ArrayList*, ArrayList*);
 
-int archivo(ArrayList* );
+int archivoUrgente(ArrayList* );
+
+int archivoRegular(ArrayList* );
+
+int parse(ArrayList* ,int );
+

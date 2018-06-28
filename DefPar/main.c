@@ -25,6 +25,8 @@ int main()
     atendidosUrgentes=al_newArrayList();
     atendidosRegulares=al_newArrayList();
 
+    idTramiteUrgente=parse(listaUrgente,idTramiteUrgente);
+
     while(seguir=='s')
     {
         printf("1- Tramite Uregente\n");
@@ -44,6 +46,7 @@ int main()
                 fflush(stdin);
                 gets(dni);
                 cargarTramite(listaUrgente,idTramiteUrgente,dni);
+                archivoUrgente(listaUrgente);
                 break;
             case 2:
                 idTramiteRegular++;
@@ -51,6 +54,7 @@ int main()
                 fflush(stdin);
                 gets(dni);
                 cargarTramite(listaRegular,idTramiteRegular,dni);
+                archivoRegular(listaRegular);
                 break;
             case 3:
                 if(!listaUrgente->isEmpty(listaUrgente))

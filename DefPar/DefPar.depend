@@ -47,3 +47,27 @@
 	"ArrayList.h"
 	"funciones.h"
 
+1530133232 source:c:\users\administrador\desktop\defensaparcial\defpar\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1530133232 c:\users\administrador\desktop\defensaparcial\defpar\arraylist.h
+
+1530146970 source:c:\users\administrador\desktop\defensaparcial\defpar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1530146874 c:\users\administrador\desktop\defensaparcial\defpar\funciones.h
+
+1530147576 source:c:\users\administrador\desktop\defensaparcial\defpar\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
